@@ -51,7 +51,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let updateAction = UIContextualAction(style: .normal, title:  nil, handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            debugPrint("Update tapped")
+            debugPrint("Update Tapped")
             
             let alert = UIAlertController(title: "Update", message: nil, preferredStyle: .alert)
             
@@ -61,8 +61,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
                 let textField = alert?.textFields![0]
-                print("Text field: \(textField?.text)")
-    
+                
                 self.viewModel.users.value?[indexPath.row].name = textField?.text ?? "N/A"
                 
             }))
